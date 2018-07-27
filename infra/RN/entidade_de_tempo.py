@@ -25,3 +25,6 @@ class EntidadeDeTempo():
 	@property
 	def numero(self):
 		return self._numero
+
+if __name__ == "__main__":
+	print("OK")
