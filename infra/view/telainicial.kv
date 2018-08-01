@@ -1,4 +1,6 @@
+#:include infra/view/uix/labeldata.kv
 #:import C kivy.utils.get_color_from_hex
+
 <TelaInicial@BoxLayout>:      
     canvas:
         Color:            
@@ -13,26 +15,8 @@
             text: "Dekatrian"   
             color:  C("#000000")
         
-    BoxLayout:
-        size_hint: 1, .2
-        BoxLayout:            
-            Button: 
-                size_hint: None, .8   
-                width:30        
-                text: "27"
-            Button: 
-                size_hint: None, .8   
-                width:30        
-                text: "07"
-            Button: 
-                size_hint: None, .8   
-                width:60        
-                text: "2018" 
-        Label:
-            size_hint: 1, .2
-            pos_hint: {"right":1, "y":0}
-            text: "00/00/0000"   
-            color:  C("#000000")                       
+    LabelData: 
+
     StackLayout:
         orientation: "lr-tb"
         Button:

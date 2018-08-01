@@ -15,9 +15,9 @@ Window.clearcolor = get_color_from_hex("#B0C4DE")
 from infra.view.tela_inicial import TelaInicial
 
 class DekatrianApp(App):    
-    pass
-   #def build(self):
-   #    return TelaInicial()
+    def build(self):        
+        self.icon = 'icon/png.png' 
+        self.title = 'Calendario Dekatrian'        
     
 
 if __name__ == '__main__':
