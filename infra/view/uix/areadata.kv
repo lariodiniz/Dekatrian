@@ -1,0 +1,38 @@
+<AreaData@BoxLayout>:
+    size_hint: 1, .08 
+    BoxLayout:     
+        padding: 5        
+        canvas:
+            Color:            
+                rgb: C("#80b3ff")
+            Rectangle:
+                size: self.size
+                pos: self.pos                 
+        BoxLayout: 
+            padding: 2                    
+            Button:
+                size_hint: None, 1
+                width:30
+                text: root.dia
+                color:  C("#001f4d") 
+                background_normal: ""
+                    
+            Button:                 
+                size_hint: None, 1  
+                width:100  
+                text: root.mes     
+                color:  C("#001f4d") 
+                background_normal: ""
+
+            Button:                 
+                size_hint: None, 1   
+                width:60  
+                text: root.ano     
+                color:  C("#001f4d") 
+                background_normal: ""
+
+        BoxLayout:         
+            Label:
+                markup: True                
+                text: root.data  
+                color:  C("#FFFFFF")

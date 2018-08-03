@@ -7,8 +7,8 @@ Data de Criação: 30/07/2018
 """
 
 #from .entidade_de_tempo import EntidadeDeTempo
-from dia import Dia
-from meses import Mes
+from .dia import Dia
+from .meses import Mes
 from datetime import date, datetime
  
 
@@ -24,15 +24,15 @@ class Data():
     
     @property
     def dia_numero_mes(self):
-        return self._dia.numero_mes
+        return str(self._dia.numero_mes)
 
     @property
     def dia_numero_semana(self):
-        return self._dia.numero_semana
+        return str(self._dia.numero_semana)
 
     @property
     def mes_numero(self):
-        return self._mes.numero
+        return str(self._mes.numero)
     
     @property
     def mes_nome(self):
