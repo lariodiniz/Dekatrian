@@ -22,8 +22,6 @@ from kivy.lang import Builder
 kv_path = ''
 kv = 'Dekatrian.kv'
 
-
-
 class DekatrianApp(App):    
     display = ObjectProperty()
 
