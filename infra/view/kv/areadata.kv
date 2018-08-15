@@ -1,0 +1,34 @@
+<AreaData>:  
+    orientation: "vertical"   
+    padding: 5        
+    canvas:
+        Color:            
+            rgb: C("#80b3ff")
+        Rectangle:
+            size: root.size
+            pos: root.pos                 
+    BoxLayout: 
+        padding: 2                    
+        Button:
+            size_hint: None, 1
+            width:30
+            text: root.dia
+            color:  C("#001f4d") 
+            background_normal: ""
+
+        Button:                 
+            size_hint: None, 1  
+            width:100  
+            text: root.mes     
+            color:  C("#001f4d") 
+            background_normal: ""
+        Button:                 
+            size_hint: None, 1   
+            width:60  
+            text: root.ano     
+            color:  C("#001f4d") 
+            background_normal: ""
+        Label:
+            italic: True                
+            text: root.data  
+            color:  C("#FFFFFF")

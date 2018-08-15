@@ -10,6 +10,7 @@ kivy.require('1.9.1')
 from kivy.app import App
 
 from kivy.core.window import Window
+
 from kivy.utils import get_color_from_hex
 Window.clearcolor = get_color_from_hex("#B0C4DE")
 
@@ -23,14 +24,12 @@ kv_path = ''
 kv = 'Dekatrian.kv'
 
 class DekatrianApp(App):    
-    display = ObjectProperty()
 
     def build(self):        
         self.icon = 'img/logo.png' 
-        self.title = 'Calendario Dekatrian'        
-        Builder.load_file(kv_path+kv)
-        
-
+        self.title = 'Calendario Dekatrian'         
+        self.tela = TelaInicial()
+        return self.tela     
 
 if __name__ == '__main__':
     janela = DekatrianApp()    
