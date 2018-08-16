@@ -1,18 +1,11 @@
-# Dekatrian
-App de Calendário Dekatrian em Python Kyvi
+![Dekatrian](https://raw.githubusercontent.com/lariodiniz/Dekatrian/master/img/logo.png)
 
-Como Contribuir.
-	- Instalar o Python Anaconda:
-		- Baixe no site: www.anaconda.com/download
-		- Instale com as opções padrões.
-	
-	- Crie um ambiente virtual
-		- No prompt de comando digite: conda create --name Dekatrian35 python=3.5	
-	
-	- Ative o ambiente virtual
-		- No prompt de comando digite: activate Dekatrian35
-		
-		
-	Nota: A partir deste momento todos os comandos precisam ser utilizados dentro do ambiente virtual
-		
-		
+Dekatrian é uma aplicação feita em Python 3.5 e Kivy que mostra simples calendário [Dekatrian](http://www.deviante.com.br/noticias/dekatrian-um-calendario-minimamente-decente/). 
+Este calendário foi idealizado por Roberto [Spinelli](https://twitter.com/peninha_13)
+
+Visite a página da [Deviante](http://www.deviante.com.br) ou o grupo de facebook [Calendario Dekatrian](https://pt-br.facebook.com/dekatrian/) para saber mais sobre o calendario.
+
+
+## License
+
+[MIT](https://github.com/lariodiniz/Dekatrian/blob/master/LICENSE.md)
