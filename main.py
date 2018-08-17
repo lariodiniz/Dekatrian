@@ -1,36 +1,39 @@
-#coding: utf-8
-#author: Lário dos Santos Diniz
-__author__ = "Lário dos Santos Diniz"
-__version__ = "0.1.0"
-
+# coding: utf-8
 import kivy
-#define a versão minima da aplicação kivy
-kivy.require('1.9.1')
+
+from datetime import date
 
 from kivy.app import App
-
 from kivy.core.window import Window
-
 from kivy.utils import get_color_from_hex
-Window.clearcolor = get_color_from_hex("#B0C4DE")
+from kivy.properties import ObjectProperty
 
 from infra.view.tela_inicial import TelaInicial
-
-from kivy.properties import ObjectProperty
-from kivy.lang import Builder
+from infra.regras.data import Data
 
 
-kv_path = ''
-kv = 'Dekatrian.kv'
+kivy.require('1.9.1')
+Window.clearcolor = get_color_from_hex("#B0C4DE")
 
-class DekatrianApp(App):    
 
-    def build(self):        
-        self.icon = 'img/logo.png' 
-        self.title = 'Calendario Dekatrian'         
+class DekatrianApp(App):
+    """Classe Principal da Aplicação"""
+
+    dataAtual = ObjectProperty(Data(date.today()))
+    dataSelecionada = ObjectProperty(Data(date.today()))
+
+    def build(self):
+
+        self.icon = 'img/logo.png'
+        self.title = 'Calendario Dekatrian'
         self.tela = TelaInicial()
-        return self.tela     
+        return self.tela
+
 
 if __name__ == '__main__':
-    janela = DekatrianApp()    
+
+    janela = DekatrianApp()
     janela.run()
+
+__version__ = "0.0.1"
+__author__ = "Lário dos Santos Diniz"

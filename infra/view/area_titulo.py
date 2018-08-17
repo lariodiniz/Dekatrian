@@ -4,13 +4,7 @@ __author__ = "Lário dos Santos Diniz"
 
 from kivy.uix.floatlayout import FloatLayout
 
-from kivy.properties import ObjectProperty
-from kivy.lang import Builder
-
-
-class AreaTitulo(FloatLayout):   
-
-    titulo = ObjectProperty(None)
+class AreaTitulo(FloatLayout):       
     
     def __init__(self, **kwargs):
         super(AreaTitulo, self).__init__(**kwargs)
