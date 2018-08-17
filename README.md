@@ -58,6 +58,6 @@ python main.py
 Esta aplicação está sendo desenvolvida por [Lário Diniz](https://twitter.com/lariodiniz).
 
 
-## Licença
-
+Licença
+==========
 [MIT](https://github.com/lariodiniz/Dekatrian/blob/master/LICENSE.md)
