@@ -1,21 +1,23 @@
-#coding: utf-8
-#author: Lário dos Santos Diniz
-__author__ = "Lário dos Santos Diniz"
-
+# coding: utf-8
+from kivy.app import App
 from kivy.uix.stacklayout import StackLayout
 from kivy.uix.label import Label
 
 from infra.view.dia_calendario import DiaCalendario
 from infra.regras.dia import Dia
 
-class AreaCalendario(StackLayout):
-    
-    def __init__(self, **kwargs):
-        super(AreaCalendario, self).__init__(**kwargs) 
-        self.monda_calendario()       
-        
 
-    def monda_calendario(self):
+class AreaCalendario(StackLayout):
+    """Classe que monta o calendario da Aplicação"""
+
+    def __init__(self, **kwargs):
+        super(AreaCalendario, self).__init__(**kwargs)
+        self.diasDoCalendario = []
+        self.aplicacao = App.get_running_app()
+        self.aplicacao.bind(dataSelecionada=self.mudouDataSelecionada)
+        self.monta_calendario()
+
+    def monta_calendario(self):
 
         for nomeDaSemana in Dia.nomes():
             nomeSemana = Label()
@@ -23,11 +25,20 @@ class AreaCalendario(StackLayout):
             nomeSemana.size_hint = (.1428, .2)
             self.add_widget(nomeSemana)
 
-        for dia in range(1,29):            
+        for dia in range(1, 29):
             diaC = DiaCalendario()
             diaC.define_dia(dia)
-               
+            self.diasDoCalendario.append(diaC)
             self.add_widget(diaC)
-        
 
+        self.defineCores()
 
+    def mudouDataSelecionada(self, app, classMudou):
+        self.defineCores()
+
+    def defineCores(self):
+
+        for dia in self.diasDoCalendario:
+            dia.define_cor()
+
+__author__ = "Lário dos Santos Diniz"

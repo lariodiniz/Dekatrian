@@ -10,25 +10,29 @@
     BoxLayout: 
         padding: 2                    
         Button:
+            id: dia
             size_hint: None, 1
             width:30
             text: root.dia
             color:  C("#001f4d") 
             background_normal: ""
 
-        Button:                 
+        Button:     
+            id: mes            
             size_hint: None, 1  
             width:100  
             text: root.mes     
             color:  C("#001f4d") 
             background_normal: ""
-        Button:                 
+        Button:   
+            id: ano              
             size_hint: None, 1   
             width:60  
             text: root.ano     
             color:  C("#001f4d") 
             background_normal: ""
         Label:
+            id: dataGregoriana
             italic: True                
-            text: root.data  
+            text: root.dataGregoriana  
             color:  C("#FFFFFF")
