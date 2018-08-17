@@ -3,6 +3,7 @@ import kivy
 
 from datetime import date
 
+
 from kivy.app import App
 from kivy.core.window import Window
 from kivy.utils import get_color_from_hex
