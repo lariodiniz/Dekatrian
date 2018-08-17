@@ -11,9 +11,9 @@ Visite a página da [Deviante](http://www.deviante.com.br) ou o grupo de faceboo
 Desenvolvimento
 ==========
 
-## Como Contribuir
+ Como Contribuir
 
-Nota: Sugerimos a utilização de uma virtualização para a contribuição desse projeto, eu utilizei o [Anaconta](https://www.anaconda.com/download/).
+  Nota: Sugerimos a utilização de uma virtualização para a contribuição desse projeto, eu utilizei o [Anaconta](https://www.anaconda.com/download/).
 
 01 - Instale o [Python 3.5](https://www.python.org/downloads/).
 
@@ -53,7 +53,7 @@ python main.py
 
 
 
-## Desenvolvedor
+ Desenvolvedor
 
 Esta aplicação está sendo desenvolvida por [Lário Diniz](https://twitter.com/lariodiniz).
 
