@@ -1,7 +1,7 @@
 # coding: utf-8
 from .dia import Dia
 from .meses import Mes
-from datetime import date, datetime
+from datetime import date, datetime, timedelta
 
 
 class Data():
@@ -33,9 +33,11 @@ class Data():
 
     def define_dia(self, dia):
         if type(dia) is not int:
-            raise Exception("A viariavel informada para o dia precisa ser do tipo inteiro.")
+            raise Exception("""A viariavel para o dia precisa 
+            ser do tipo inteiro.""")
 
         self._dia = Dia(dia)
+        self.converte_gregoriano()
 
     def _define_dias_passados(self, data):
         d2 = datetime.strptime(data.strftime("%Y-%m-%d"), '%Y-%m-%d')
@@ -47,6 +49,22 @@ class Data():
             int(self.dia_numero_mes),
             int(self.mes_numero),
             self.mes_nome, int(self.ano))
+
+    def converte_gregoriano(self):
+
+        d1 = datetime.strptime('{}-01-01'.format(int(self.ano) - 10000),
+                               '%Y-%m-%d')
+        diasSemMes = 0
+        if self._ehBissexto(d1.year):
+            diasSemMes = 2
+        else:
+            diasSemMes = 1
+
+        diasPassados = ((self._mes.numero * 28) - 28)
+
+        diasPassados += self._dia.numero_mes + diasSemMes
+        d2 = d1 + timedelta(diasPassados - 1)
+        self.data = d2.strftime("%d/%m/%Y")
 
     def __init__(self, data):
 
@@ -76,8 +94,8 @@ class Data():
         if (mes > 13):
             mes = 13
 
-        self.define_dia(dia_do_mes)
         self._mes = Mes(mes)
+        self.define_dia(dia_do_mes)
 
     def _ehBissexto(self, ano):
         return (ano % 4 == 0) and (ano % 100 != 0 or ano % 400 == 0)

@@ -1,4 +1,5 @@
 # coding: utf-8
+import os
 import kivy
 
 from datetime import date
@@ -11,6 +12,7 @@ from kivy.properties import ObjectProperty
 
 from infra.view.tela_inicial import TelaInicial
 from infra.regras.data import Data
+from infra.regras.carrega_kv import CarregaKV
 
 
 kivy.require('1.9.1')
@@ -25,6 +27,7 @@ class DekatrianApp(App):
 
     def build(self):
 
+        CarregaKV()
         self.icon = 'img/logo.png'
         self.title = 'Calendario Dekatrian'
         self.tela = TelaInicial()

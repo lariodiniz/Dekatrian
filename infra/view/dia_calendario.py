@@ -12,7 +12,7 @@ class DiaCalendario(Button):
     """Classe que cria os botões de cada dia do calentario"""
 
     def on_press(self):
-        self.aplicacao.dataSelecionada.define_dia(int(self.dia))
+        self.aplicacao.dataSelecionada.define_dia(int(self.dia))        
         prop = self.aplicacao.property('dataSelecionada')
         prop.dispatch(self.aplicacao)
 
