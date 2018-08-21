@@ -8,9 +8,9 @@ class CarregaKV():
     """Carrega no Sistema Todos os Arquivos KV"""
 
     def __init__(self):
-        path = os.getcwd()
+        path = "" #os.getcwd()
 
-        kv_path = path+'\\infra\\view\\kv'
+        kv_path = path+'infra\\view\\kv'
         kvs = self.listarArquivos(".kv", kv_path)
 
         for kv in kvs:
