@@ -4,6 +4,7 @@ from datetime import date
 from kivy.app import App
 from kivy.uix.button import Button
 from kivy.utils import get_color_from_hex
+from kivy.uix.label import Label
 
 from infra.regras.data import Data
 
@@ -13,15 +14,15 @@ class DiaCalendario(Button):
 
     def on_press(self):
         self.aplicacao.dataSelecionada.define_dia(int(self.dia))
-        print(self.aplicacao.dataSelecionada)
         prop = self.aplicacao.property('dataSelecionada')
         prop.dispatch(self.aplicacao)
 
-    def __init__(self, **kwargs):
+    def __init__(self, fim_de_semana, **kwargs):
 
         super(DiaCalendario, self).__init__(**kwargs)
         self.aplicacao = App.get_running_app()
         self.dia = "0"
+        self.fim_de_semana = fim_de_semana
         self.define_dia
 
     def pinta_dia_selecionado(self):
@@ -54,6 +55,10 @@ class DiaCalendario(Button):
             self.background_color = get_color_from_hex("#ff66ff")
         elif self.dia in ['7', '14', '21', '28']:
             self.background_color = get_color_from_hex("#b366ff")
+
+        if self.fim_de_semana is True:
+            self.markup = True
+            self.text = self.dia + "[sup] F[/sup]"
 
         self.pinta_dia_selecionado()
 

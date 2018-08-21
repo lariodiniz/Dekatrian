@@ -1,10 +1,13 @@
 # coding: utf-8
+from datetime import date, datetime
+
 from kivy.app import App
 from kivy.uix.stacklayout import StackLayout
 from kivy.uix.label import Label
 
 from infra.view.dia_calendario import DiaCalendario
 from infra.regras.dia import Dia
+from infra.regras.data import Data
 
 
 class AreaCalendario(StackLayout):
@@ -27,7 +30,13 @@ class AreaCalendario(StackLayout):
                 self.add_widget(nomeSemana)
 
             for dia in range(1, 29):
-                diaC = DiaCalendario()
+                data = self.aplicacao.dataSelecionada.to_date
+                dataD = Data(data)
+                dataD.define_dia(dia)
+
+                fim_de_semana = dataD.to_date.weekday() in [5, 6]
+
+                diaC = DiaCalendario(fim_de_semana)
                 diaC.define_dia(dia)
                 self.diasDoCalendario.append(diaC)
                 self.add_widget(diaC)

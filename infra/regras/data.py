@@ -66,6 +66,13 @@ class Data():
         d2 = d1 + timedelta(diasPassados - 1)
         self.data = d2.strftime("%d/%m/%Y")
 
+    @property
+    def to_date(self):
+        ano = self.data[-4:]
+        mes = self.data[3:5]
+        dia = self.data[0:2]
+        return datetime.strptime(ano+"-"+mes+"-"+dia, '%Y-%m-%d')
+
     def __init__(self, data):
 
         dias_passados = self._define_dias_passados(data)
