@@ -19,17 +19,23 @@ class AreaCalendario(StackLayout):
 
     def monta_calendario(self):
 
-        for nomeDaSemana in Dia.nomes():
-            nomeSemana = Label()
-            nomeSemana.text = nomeDaSemana
-            nomeSemana.size_hint = (.1428, .2)
-            self.add_widget(nomeSemana)
+        if self.aplicacao.dataSelecionada.mes_nome != 'Sem Mes':
+            for nomeDaSemana in Dia.nomes():
+                nomeSemana = Label()
+                nomeSemana.text = nomeDaSemana
+                nomeSemana.size_hint = (.1428, .2)
+                self.add_widget(nomeSemana)
 
-        for dia in range(1, 29):
-            diaC = DiaCalendario()
-            diaC.define_dia(dia)
-            self.diasDoCalendario.append(diaC)
-            self.add_widget(diaC)
+            for dia in range(1, 29):
+                diaC = DiaCalendario()
+                diaC.define_dia(dia)
+                self.diasDoCalendario.append(diaC)
+                self.add_widget(diaC)
+        else:
+            diaForaDoCalendario = Label()
+            diaForaDoCalendario.text = self.aplicacao.dataSelecionada.dia_nome
+            diaForaDoCalendario.size_hint = (1, 1)
+            self.add_widget(diaForaDoCalendario)
 
         self.defineCores()
 

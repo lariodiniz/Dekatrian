@@ -33,8 +33,8 @@ class Data():
 
     def define_dia(self, dia):
         if type(dia) is not int:
-            raise Exception("""A viariavel para o dia precisa 
-            ser do tipo inteiro.""")
+            men = "A viariavel para o dia precisa ser do tipo inteiro."
+            raise Exception(men)
 
         self._dia = Dia(dia)
         self.converte_gregoriano()
