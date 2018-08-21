@@ -4,7 +4,6 @@ import kivy
 
 from datetime import date
 
-
 from kivy.app import App
 from kivy.core.window import Window
 from kivy.utils import get_color_from_hex
@@ -14,6 +13,7 @@ from infra.view.tela_inicial import TelaInicial
 from infra.regras.data import Data
 from infra.regras.carrega_kv import CarregaKV
 
+from infra.view.area_menu import AreaMenu
 
 kivy.require('1.9.1')
 Window.clearcolor = get_color_from_hex("#B0C4DE")
@@ -24,14 +24,15 @@ class DekatrianApp(App):
 
     dataAtual = ObjectProperty(Data(date.today()))
     dataSelecionada = ObjectProperty(Data(date.today()))
+    tela = ObjectProperty(str())
 
     def build(self):
 
         CarregaKV()
         self.icon = 'img/logo.png'
         self.title = 'Calendario Dekatrian'
-        self.tela = TelaInicial()
-        return self.tela
+        self.tela = 'Calendario'
+        return TelaInicial()
 
 
 if __name__ == '__main__':

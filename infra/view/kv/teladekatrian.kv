@@ -1,0 +1,32 @@
+#coding: utf-8
+#:import C kivy.utils.get_color_from_hex
+
+<TelaDekatrian>:    
+    orientation: "vertical"   
+    AreaMenu:  
+        size_hint: 1, .03       
+    StackLayout:   
+        size_hint: 1, .97           
+        orientation: "lr-tb"
+        canvas:
+            Color:            
+                rgb: C("#b7d8c0")
+            Rectangle:
+                size: self.size
+                pos: self.pos
+
+        Label:
+            size_hint: 1, .2
+            color: C("#000000")            
+            text: u"\nDekatrian e um calendario idealizado\npelo integrante da equipe do Podcast Scicast:\n\nRoberto Spinelli.\n"
+        Label:
+            size_hint: 1, .1
+            markup: True
+            color: C("#000000")            
+            text: u"\nVisite a pagina da Deviante ou o grupo do facebook\ndo Calendario Dekatrian para saber mais."
+            
+        Label:
+            size_hint: 1, .1
+            markup: True
+            color: C("#000000")            
+            text: u"[ref=http:////www.deviante.com.br//podcasts//scicast//]http:////www.deviante.com.br//podcasts//scicast//[/ref]\n"

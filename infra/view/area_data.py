@@ -5,6 +5,7 @@ from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
 
 from infra.regras.data import Data
+from kivy.uix.label import Label
 
 
 class AreaData(BoxLayout):
@@ -22,7 +23,12 @@ class AreaData(BoxLayout):
         super(AreaData, self).__init__(**kwargs)
         self.aplicacao = App.get_running_app()
         self.aplicacao.bind(dataSelecionada=self.mudouDataSelecionada)
+
         self.define_datas()
+
+    def on_press_dia(self):
+        print(self.aplicacao.tela.ids.tela_secundaria.add_widget(Label(text="exemplo")))
+        print("ola")
 
     def mudouDataSelecionada(self, app, classMudou):
         self.define_datas()

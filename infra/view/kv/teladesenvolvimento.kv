@@ -1,0 +1,41 @@
+#coding: utf-8
+#:import C kivy.utils.get_color_from_hex
+
+<TelaDesenvolvimento>:    
+    orientation: "vertical"   
+    AreaMenu:  
+        size_hint: 1, .03       
+    StackLayout:   
+        size_hint: 1, .97           
+        orientation: "lr-tb"
+        canvas:
+            Color:            
+                rgb: C("#eae8e8")
+            Rectangle:
+                size: self.size
+                pos: self.pos
+
+        Label:
+            size_hint: 1, .1
+            color: C("#000000")
+            markup: True
+            text: u"\nEste programa esta sendo desenvolvido por\n[ref=https://twitter.com/lariodiniz]Lario Diniz[/ref]. Para criticas, sugestoes e contatos\nenvie um email para:"
+
+        Label:
+            size_hint: 1, .1
+            color: C("#000000")
+            text: u"lariodiniz@gmail.com"
+        Label:
+            markup: True
+            color: C("#000000")
+            size_hint: 1, .1
+            text: u"Este programa e de codigo aberto e gratuito, \nele utiliza a licenca MIT. Acesse o repositorio\ndo codigo e contribua no desenvolvimento."
+        Label:
+            size_hint: 1, .1
+            color: C("#000000")
+            markup: True
+            text: u"[ref=https://github.com/lariodiniz/Dekatrian]https://github.com/lariodiniz/Dekatrian[/ref]"
+        Label:
+            size_hint: 1, .1  
+            color: C("#000000")          
+            text: u"Tecnologias utilizadas no desenvolvimento:\n\nPython 3.5\nKivy 1.9.1"                        
