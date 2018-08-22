@@ -24,6 +24,7 @@ Config.set('kivy', 'window_icon', 'img/icon.png')
 Window.clearcolor = get_color_from_hex("#B0C4DE")
 Window.size = (360, 640)
 
+
 class DekatrianApp(App):
     """Classe Principal da Aplicação"""
 
