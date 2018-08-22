@@ -9,7 +9,8 @@ Este calendário foi idealizado por [Roberto Spinelli](https://twitter.com/penin
 Visite a página da [Deviante](http://www.deviante.com.br) ou o grupo de facebook [Calendario Dekatrian](https://pt-br.facebook.com/dekatrian/) para saber mais sobre o calendario.
 
 - Instaladores
-[![Windows 64](https://badges.gitter.im/Join%20Chat.svg)](https://www.dropbox.com/s/0z3c0th2fsorfvk/Dekatrian_Install.exe?dl=1)
+
+[![Windows 64](https://github.com/lariodiniz/Dekatrian/blob/develop/ImagensGit/Windows64.png)](https://www.dropbox.com/s/0z3c0th2fsorfvk/Dekatrian_Install.exe?dl=1)
 
 Desenvolvimento
 ==========
