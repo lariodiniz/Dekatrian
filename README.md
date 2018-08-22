@@ -2,6 +2,8 @@
 
 Dekatrian
 ==========
+Instaladores
+[![Windows 64](https://badges.gitter.im/Join%20Chat.svg)](https://www.dropbox.com/s/0z3c0th2fsorfvk/Dekatrian_Install.exe?dl=1)
 
 Dekatrian é uma aplicação feita em Python 3.5 e Kivy que mostra um simples calendário [Dekatrian](http://www.deviante.com.br/noticias/dekatrian-um-calendario-minimamente-decente/). 
 Este calendário foi idealizado por [Roberto Spinelli](https://twitter.com/peninha_13)
