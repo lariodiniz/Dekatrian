@@ -7,6 +7,8 @@ from kivy.uix.boxlayout import BoxLayout
 from infra.regras.data import Data
 from kivy.uix.button import Button
 
+from infra.view.area_meses import AreaMeses
+
 
 class AreaData(BoxLayout):
     """Classe que define a area que mostra as datas na aplicação."""
@@ -27,12 +29,10 @@ class AreaData(BoxLayout):
         self.define_datas()
 
     def on_press_dia(self):
-        tela = self.aplicacao.tela.ids.tela_secundaria
-        tela.remove_widget(tela)
-        texto = Button(text="teste")
-        tela.add_widget(texto)
-        print(tela)
-        print("ola")
+        self.aplicacao.mudarTelaSecundaria(BoxLayout)
+
+    def on_press_mes(self):
+        self.aplicacao.mudarTelaSecundaria(AreaMeses)
 
     def mudouDataSelecionada(self, app, classMudou):
         self.define_datas()

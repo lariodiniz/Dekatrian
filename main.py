@@ -13,6 +13,7 @@ from kivy.properties import ObjectProperty
 from kivy.config import Config
 from kivy.lang import Builder
 from kivy.utils import platform
+from kivy.uix.button import Button
 
 from infra.view.tela_inicial import TelaInicial
 from infra.regras.data import Data
@@ -72,12 +73,18 @@ class DekatrianApp(App):
         self.icon = 'img/icon.png'
         self.title = 'Calendario Dekatrian'
         self.tela = TelaInicial()
+        self.telaSecundaria = Button()
         return self.tela
 
     def mudarTela(self, tela):
-        self.tela = tela()
         self.root_window.remove_widget(self.tela)
+        self.tela = tela()
         self.root_window.add_widget(self.tela)
+
+    def mudarTelaSecundaria(self, tela):
+        self.tela.ids.tela_secundaria.remove_widget(self.telaSecundaria)
+        self.telaSecundaria = tela()     
+        self.tela.ids.tela_secundaria.add_widget(self.telaSecundaria)
 
 
 if __name__ in ('__android__', '__main__'):

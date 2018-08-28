@@ -39,6 +39,21 @@ class Data():
         self._dia = Dia(dia)
         self.converte_gregoriano()
 
+    def define_mes(self, mes):
+        nomesMes = Mes.nomes()
+
+        try:
+            mesNum = nomesMes.index(mes)+1
+            self._mes = Mes(mesNum)
+            self.converte_gregoriano()
+        except:
+            men = "A viariavel para o nome do mes é inválida."
+            raise Exception(men)
+
+    def define_ano(self, ano):
+        self.ano = ano
+        self.converte_gregoriano()
+
     def _define_dias_passados(self, data):
         d2 = datetime.strptime(data.strftime("%Y-%m-%d"), '%Y-%m-%d')
         d1 = datetime.strptime('{}-01-01'.format(data.year), '%Y-%m-%d')

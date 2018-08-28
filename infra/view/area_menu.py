@@ -24,10 +24,10 @@ class AreaMenu(BoxLayout):
         self.aplicacao.mudarTela(TelaDekatrian)
 
     def on_press_calendario(self):
-        self.aplicacao.mudarTela(TelaInicial)        
+        self.aplicacao.mudarTela(TelaInicial)
 
     def on_press_desenvolvimento(self):
         self.aplicacao.mudarTela(TelaDesenvolvimento)
-        
+
 
 __author__ = "Lário dos Santos Diniz"
