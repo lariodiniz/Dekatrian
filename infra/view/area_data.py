@@ -5,7 +5,7 @@ from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
 
 from infra.regras.data import Data
-from kivy.uix.label import Label
+from kivy.uix.button import Button
 
 
 class AreaData(BoxLayout):
@@ -27,7 +27,11 @@ class AreaData(BoxLayout):
         self.define_datas()
 
     def on_press_dia(self):
-        print(self.aplicacao.tela.ids.tela_secundaria.add_widget(Label(text="exemplo")))
+        tela = self.aplicacao.tela.ids.tela_secundaria
+        tela.remove_widget(tela)
+        texto = Button(text="teste")
+        tela.add_widget(texto)
+        print(tela)
         print("ola")
 
     def mudouDataSelecionada(self, app, classMudou):

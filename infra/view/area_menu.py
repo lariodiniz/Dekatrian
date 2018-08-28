@@ -21,15 +21,13 @@ class AreaMenu(BoxLayout):
         self.aplicacao = App.get_running_app()
 
     def on_press_dekatrian(self):
-        self.aplicacao.root_window.remove_widget(self.aplicacao.root)
-        self.aplicacao.root_window.add_widget(TelaDekatrian())
+        self.aplicacao.mudarTela(TelaDekatrian)
 
     def on_press_calendario(self):
-        self.aplicacao.root_window.remove_widget(self.aplicacao.root)
-        self.aplicacao.root_window.add_widget(TelaInicial())
+        self.aplicacao.mudarTela(TelaInicial)        
 
     def on_press_desenvolvimento(self):
-        self.aplicacao.root_window.remove_widget(self.aplicacao.root)
-        self.aplicacao.root_window.add_widget(TelaDesenvolvimento())
+        self.aplicacao.mudarTela(TelaDesenvolvimento)
+        
 
 __author__ = "Lário dos Santos Diniz"

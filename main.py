@@ -31,8 +31,7 @@ class DekatrianApp(App):
 
     def __init__(self, **kwargs):
         self._configuracaoInicial()
-        super(DekatrianApp, self).__init__(**kwargs)
-        print(os.name)
+        super(DekatrianApp, self).__init__(**kwargs)        
         self._carregaKv()
 
     def _configuracaoInicial(self):
@@ -48,12 +47,10 @@ class DekatrianApp(App):
         else:
             return '/'
 
-    def _carregaKv(self):        
+    def _carregaKv(self):
 
         b = self._defineBarra()
-
         path = os.path.dirname(os.path.abspath(__file__))
-
         kv_path = path+b+'infra'+b+'view'+b+'kv'
         kvs = self._listarArquivos(".kv", kv_path)
 
@@ -74,8 +71,14 @@ class DekatrianApp(App):
 
         self.icon = 'img/icon.png'
         self.title = 'Calendario Dekatrian'
-        self.tela = 'Calendario'
-        return TelaInicial()
+        self.tela = TelaInicial()
+        return self.tela
+
+    def mudarTela(self, tela):
+        self.tela = tela()
+        self.root_window.remove_widget(self.tela)
+        self.root_window.add_widget(self.tela)
+
 
 if __name__ in ('__android__', '__main__'):
 
