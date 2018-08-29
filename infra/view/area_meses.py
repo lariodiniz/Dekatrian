@@ -17,33 +17,27 @@ class AreaMeses(StackLayout):
     def __init__(self, **kwargs):
         super(AreaMeses, self).__init__(**kwargs)
         self.aplicacao = App.get_running_app()
-        self.aplicacao.bind(dataSelecionada=self.mudouDataSelecionada)
         self.monta_meses()
 
     def monta_meses(self):
+        mesAtual = self.aplicacao.dataAtual.mes_nome
 
         for nomeDoMes in Mes.nomes():
             mes = MesCalendario(nomeDoMes)
+            if (nomeDoMes == mesAtual):
+                mes.background_color = get_color_from_hex("#ADD8E6")
+
             self.add_widget(mes)
+
         mes = MesCalendario('Achronian')
         mes.background_color = get_color_from_hex("#FFD700")
         self.add_widget(mes)
 
         proximoAno = self.aplicacao.dataSelecionada.to_date.year+1
-        print(proximoAno)
-        print(self._ehBissexto(proximoAno))
         if self._ehBissexto(proximoAno):
             mes = MesCalendario('Sinchronian')
             mes.background_color = get_color_from_hex("#DCDCDC")
             self.add_widget(mes)
-
-    def mudouDataSelecionada(self, app, classMudou):
-        print(app)
-
-    def defineCores(self):
-
-        for dia in self.diasDoCalendario:
-            dia.define_cor()
 
     def _ehBissexto(self, ano):
         return (ano % 4 == 0) and (ano % 100 != 0 or ano % 400 == 0)

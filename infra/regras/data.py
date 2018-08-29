@@ -41,18 +41,17 @@ class Data():
 
     def define_mes(self, mes):
         nomesMes = Mes.nomes()
-
         try:
             mesNum = nomesMes.index(mes)+1
             self._mes = Mes(mesNum)
-            self.converte_gregoriano()
+            self.define_dia(int(self._dia.numero_mes))
         except:
             men = "A viariavel para o nome do mes é inválida."
             raise Exception(men)
 
     def define_ano(self, ano):
         self.ano = ano
-        self.converte_gregoriano()
+        self.define_dia(int(self._dia.numero_mes))
 
     def _define_dias_passados(self, data):
         d2 = datetime.strptime(data.strftime("%Y-%m-%d"), '%Y-%m-%d')
@@ -80,6 +79,7 @@ class Data():
         diasPassados += self._dia.numero_mes + diasSemMes
         d2 = d1 + timedelta(diasPassados - 1)
         self.data = d2.strftime("%d/%m/%Y")
+        
 
     @property
     def to_date(self):

@@ -8,6 +8,7 @@ from infra.regras.data import Data
 from kivy.uix.button import Button
 
 from infra.view.area_meses import AreaMeses
+from infra.view.area_anos import AreaAnos
 
 
 class AreaData(BoxLayout):
@@ -33,6 +34,9 @@ class AreaData(BoxLayout):
 
     def on_press_mes(self):
         self.aplicacao.mudarTelaSecundaria(AreaMeses)
+
+    def on_press_ano(self):
+        self.aplicacao.mudarTelaSecundaria(AreaAnos)
 
     def mudouDataSelecionada(self, app, classMudou):
         self.define_datas()

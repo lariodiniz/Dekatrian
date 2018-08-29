@@ -37,8 +37,14 @@ class DiaCalendario(Button):
         self.bold = False
 
         hoje = self.aplicacao.dataAtual.dia_numero_mes
+        mesAtual = self.aplicacao.dataAtual.mes_nome
+        mesSelecionado = self.aplicacao.dataSelecionada.mes_nome
+        anoSelecionado = int(self.aplicacao.dataSelecionada.ano)
+        anoAtual = int(self.aplicacao.dataAtual.ano)
 
-        if self.dia == hoje:
+        if ((self.dia == hoje) and
+           (mesSelecionado == mesAtual) and
+           (anoAtual == anoSelecionado)):
             self.underline = True
 
         if self.dia in ['1', '8', '15', '22']:

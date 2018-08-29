@@ -16,6 +16,9 @@ from kivy.utils import platform
 from kivy.uix.button import Button
 
 from infra.view.tela_inicial import TelaInicial
+from infra.view.tela_desenvolvimento import TelaDesenvolvimento
+from infra.view.tela_dekatrian import TelaDekatrian
+
 from infra.regras.data import Data
 
 from infra.view.area_menu import AreaMenu
@@ -32,8 +35,9 @@ class DekatrianApp(App):
 
     def __init__(self, **kwargs):
         self._configuracaoInicial()
-        super(DekatrianApp, self).__init__(**kwargs)        
         self._carregaKv()
+        super(DekatrianApp, self).__init__(**kwargs)
+        self._telas = [TelaInicial, TelaDekatrian, TelaDesenvolvimento]
 
     def _configuracaoInicial(self):
         Config.set('graphics', 'resizable', 0)
@@ -59,8 +63,8 @@ class DekatrianApp(App):
             Builder.load_file(kv_path+b+kv)
 
     def _listarArquivos(self, ext, path):
-        """Lista todos os arquivos que estão em um diretório com a extencao 
-        definida"""
+        """Lista todos os arquivos que estão em um diretório
+        com a extencao definida"""
 
         b = self._defineBarra()
         caminhos = [os.path.join(path, nome) for nome in os.listdir(path)]
@@ -78,19 +82,30 @@ class DekatrianApp(App):
 
     def mudarTela(self, tela):
         self.root_window.remove_widget(self.tela)
-        self.tela = tela()
+        self.tela = self._telas[tela]()
         self.root_window.add_widget(self.tela)
 
     def mudarTelaSecundaria(self, tela):
         self.tela.ids.tela_secundaria.remove_widget(self.telaSecundaria)
-        self.telaSecundaria = tela()     
+        self.telaSecundaria = tela()
         self.tela.ids.tela_secundaria.add_widget(self.telaSecundaria)
 
+    @property
+    def tela_inicial(self):
+        return 0
+
+    @property
+    def tela_dekatrian(self):
+        return 1
+
+    @property
+    def tela_desenvolvimento(self):
+        return 2
 
 if __name__ in ('__android__', '__main__'):
 
     janela = DekatrianApp()
     janela.run()
 
-__version__ = '0.0.1'
+__version__ = '1.0.0'
 __author__ = "Lário dos Santos Diniz"

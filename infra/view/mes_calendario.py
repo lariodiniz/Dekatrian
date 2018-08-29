@@ -31,7 +31,7 @@ class MesCalendario(Button):
 
         prop = self.aplicacao.property('dataSelecionada')
         prop.dispatch(self.aplicacao)
-        self.aplicacao.mudarTelaSecundaria(BoxLayout)
+        self.aplicacao.mudarTela(self.aplicacao.tela_inicial)
 
     def __init__(self, nomeMes, **kwargs):
 
