@@ -11,7 +11,7 @@ Visite a página da [Deviante](http://www.deviante.com.br) ou o grupo de faceboo
 - Instaladores
 
 [![Windows 64](https://github.com/lariodiniz/Dekatrian/blob/develop/ImagensGit/Windows64.png)](https://www.dropbox.com/s/0z3c0th2fsorfvk/Dekatrian_Install.exe?dl=1)
-[![Android](https://github.com/lariodiniz/Dekatrian/blob/develop/ImagensGit/Android.png)](https://www.dropbox.com/s/penzxzx11vz703c/dekatrian-0.0.1-debug.apk?dl=1)
+[![Android](https://github.com/lariodiniz/Dekatrian/blob/develop/ImagensGit/Android.png)](https://www.dropbox.com/s/sz9xcgpg7dbss97/dekatrian-1.0.0-debug.apk?dl=1)
 
 Desenvolvimento
 ==========
