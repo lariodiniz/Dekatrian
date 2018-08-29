@@ -1,0 +1,3 @@
+title=Dekatrian
+author=Lario Diniz
+orientation=portrait

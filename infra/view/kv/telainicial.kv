@@ -1,18 +1,20 @@
 #:import C kivy.utils.get_color_from_hex
 
 <TelaInicial>:
-    padding: 5          
+    orientation: "vertical"  
+    AreaMenu:  
+        size_hint: 1, .05            
     BoxLayout:  
-        padding: 5    
+        padding: 5            
         orientation: "vertical"  
         canvas:
             Color:            
                 rgb: C("#FFFFFF")
             Rectangle:
-                size: root.size
-                pos: root.pos
+                size: self.size
+                pos: self.pos
         AreaTitulo:  
-            size_hint: 1, .1      
+            size_hint: 1, .07     
         AreaData: 
             size_hint: 1, .08
         BoxLayout:   
@@ -25,7 +27,9 @@
                     pos: self.pos  
             AreaCalendario: 
         BoxLayout:
+            id: tela_secundaria
             size_hint: 1, .4 
+            
 
   
     
