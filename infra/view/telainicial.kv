@@ -6,13 +6,12 @@
         size_hint: 1, .05            
     BoxLayout:  
         padding: 5            
-        orientation: "vertical"  
-        canvas:
-            Color:            
-                rgb: C("#FFFFFF")
+        orientation: "vertical" 
+        canvas:            
             Rectangle:
                 size: self.size
                 pos: self.pos
+                source: root.background
         AreaTitulo:  
             size_hint: 1, .07     
         AreaData: 
@@ -29,8 +28,3 @@
         BoxLayout:
             id: tela_secundaria
             size_hint: 1, .4 
-            
-
-  
-    
-                                                              
