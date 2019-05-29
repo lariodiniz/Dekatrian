@@ -7,8 +7,8 @@ from kivy.uix.button import Button
 from kivy.utils import get_color_from_hex
 
 from infra.view.mes_calendario import MesCalendario
-from infra.regras.meses import Mes
-from infra.regras.data import Data
+from infra.controller.meses import Mes
+from infra.controller.data import Data
 
 
 class AreaMeses(StackLayout):

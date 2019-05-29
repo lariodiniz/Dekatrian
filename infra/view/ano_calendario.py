@@ -7,7 +7,7 @@ from kivy.uix.button import Button
 from kivy.utils import get_color_from_hex
 from kivy.uix.boxlayout import BoxLayout
 
-from infra.regras.data import Data
+from infra.controller.data import Data
 
 
 class AnoCalendario(Button):

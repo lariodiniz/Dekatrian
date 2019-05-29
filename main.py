@@ -19,7 +19,7 @@ from infra.view.tela_inicial import TelaInicial
 from infra.view.tela_desenvolvimento import TelaDesenvolvimento
 from infra.view.tela_dekatrian import TelaDekatrian
 
-from infra.regras.data import Data
+from infra.controller.data import Data
 
 from infra.view.area_menu import AreaMenu
 
