@@ -6,8 +6,8 @@ from kivy.uix.stacklayout import StackLayout
 from kivy.uix.label import Label
 
 from infra.view.dia_calendario import DiaCalendario
-from infra.regras.dia import Dia
-from infra.regras.data import Data
+from infra.controller.dia import Dia
+from infra.controller.data import Data
 
 
 class AreaCalendario(StackLayout):

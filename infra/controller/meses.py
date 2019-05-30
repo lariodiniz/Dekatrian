@@ -5,7 +5,7 @@ class Mes():
 
     @staticmethod
     def nomes():
-        return ("Auran", "Borean", "Coronian", "Driadan", "Electran",
+        return ("Auroran", "Borean", "Coronian", "Driadan", "Electran",
                 "Faian", "Gaian", "Hermetian", "Irisian", "Kaosian",
                 "Lunan", "Maian", "Nixian")
 

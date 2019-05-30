@@ -1,6 +1,7 @@
 # coding: utf-8
 import os
 import kivy
+from os.path import abspath, dirname
 import platform as plataforma
 
 
@@ -19,11 +20,19 @@ from infra.view.tela_inicial import TelaInicial
 from infra.view.tela_desenvolvimento import TelaDesenvolvimento
 from infra.view.tela_dekatrian import TelaDekatrian
 
-from infra.regras.data import Data
+from infra.controller.data import Data
 
 from infra.view.area_menu import AreaMenu
 
 kivy.require('1.9.1')
+
+if plataforma.system() == 'Windows':
+    barra = '\\'
+else:
+    barra = '/'
+
+os.environ['KIVY_DATA_DIR'] = abspath(dirname(__file__)) + barra+'img'
+print(os.environ['KIVY_DATA_DIR'])
 
 
 class DekatrianApp(App):
@@ -40,9 +49,14 @@ class DekatrianApp(App):
         self._telas = [TelaInicial, TelaDekatrian, TelaDesenvolvimento]
 
     def _configuracaoInicial(self):
+       
+        self.barra = self._defineBarra()
+        self.pasta_projeto = os.path.dirname(os.path.abspath(__file__))
+        self.pasta_imagens = self.pasta_projeto+self.barra+'img'+self.barra
+
         Config.set('graphics', 'resizable', 0)
-        Config.set('kivy', 'window_icon', 'img/icon.png')
-        Window.clearcolor = get_color_from_hex("#B0C4DE")
+        Config.set('kivy', 'window_icon', self.pasta_imagens + 'icon.png')
+        #Window.clearcolor = get_color_from_hex("#B0C4DE")
         if platform != 'android':
             Window.size = (360, 640)
 
@@ -54,23 +68,20 @@ class DekatrianApp(App):
 
     def _carregaKv(self):
 
-        b = self._defineBarra()
-        path = os.path.dirname(os.path.abspath(__file__))
-        kv_path = path+b+'infra'+b+'view'+b+'kv'
+        kv_path = self.pasta_projeto+self.barra+'infra'+self.barra+'view'
         kvs = self._listarArquivos(".kv", kv_path)
 
         for kv in kvs:
-            Builder.load_file(kv_path+b+kv)
+            Builder.load_file(kv_path+self.barra+kv)
 
     def _listarArquivos(self, ext, path):
         """Lista todos os arquivos que estão em um diretório
         com a extencao definida"""
 
-        b = self._defineBarra()
         caminhos = [os.path.join(path, nome) for nome in os.listdir(path)]
         arquivos = [arq for arq in caminhos if os.path.isfile(arq)]
         arqFiltrados = [arq for arq in arquivos if arq.lower().endswith(ext)]
-        return [arq.split(b)[-1] for arq in arqFiltrados]
+        return [arq.split(self.barra)[-1] for arq in arqFiltrados]
 
     def build(self):
 
