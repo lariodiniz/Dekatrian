@@ -9,8 +9,11 @@ class AreaMenu(BoxLayout):
     """Classe que define a area que mostra o menu."""
 
     def __init__(self, **kwargs):
-        super(AreaMenu, self).__init__(**kwargs)
         self.aplicacao = App.get_running_app()
+        self.img_dekatrian = self.aplicacao.pasta_imagens+'report.png'
+        self.img_calendario = self.aplicacao.pasta_imagens+'calendar.png'
+        self.img_desenvolvimento = self.aplicacao.pasta_imagens+'resume.png'
+        super(AreaMenu, self).__init__(**kwargs)
 
     def on_press_dekatrian(self):
         self.aplicacao.mudarTela(self.aplicacao.tela_dekatrian)

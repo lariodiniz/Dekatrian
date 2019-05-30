@@ -1,6 +1,7 @@
 # coding: utf-8
 import os
 import kivy
+from os.path import abspath, dirname
 import platform as plataforma
 
 
@@ -25,6 +26,14 @@ from infra.view.area_menu import AreaMenu
 
 kivy.require('1.9.1')
 
+if plataforma.system() == 'Windows':
+    barra = '\\'
+else:
+    barra = '/'
+
+os.environ['KIVY_DATA_DIR'] = abspath(dirname(__file__)) + barra+'img'
+print(os.environ['KIVY_DATA_DIR'])
+
 
 class DekatrianApp(App):
     """Classe Principal da Aplicação"""
@@ -46,8 +55,8 @@ class DekatrianApp(App):
         self.pasta_imagens = self.pasta_projeto+self.barra+'img'+self.barra
 
         Config.set('graphics', 'resizable', 0)
-        Config.set('kivy', 'window_icon', 'img/icon.png')
-        Window.clearcolor = get_color_from_hex("#B0C4DE")
+        Config.set('kivy', 'window_icon', self.pasta_imagens + 'icon.png')
+        #Window.clearcolor = get_color_from_hex("#B0C4DE")
         if platform != 'android':
             Window.size = (360, 640)
 

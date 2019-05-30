@@ -1,0 +1,22 @@
+#coding: utf-8
+#:import C kivy.utils.get_color_from_hex
+
+<TelaDesenvolvimento>:    
+    orientation: "vertical"   
+    AreaMenu:  
+        size_hint: 1, .097        
+    StackLayout:   
+        size_hint: 1, .97           
+        orientation: "lr-tb"
+        canvas:
+            Color:            
+                rgb: C("#ffffff")
+            Rectangle:
+                size: self.size
+                pos: self.pos
+
+        Label:
+            size_hint: 1, .2
+            color: C("#3A8EED")            
+            text: root.texto
+            markup: True
