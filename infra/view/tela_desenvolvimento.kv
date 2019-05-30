@@ -4,9 +4,9 @@
 <TelaDesenvolvimento>:    
     orientation: "vertical"   
     AreaMenu:  
-        size_hint: 1, .097        
+        size_hint: 1, .1         
     StackLayout:   
-        size_hint: 1, .97           
+        size_hint: 1, 1           
         orientation: "lr-tb"
         canvas:
             Color:            
@@ -14,7 +14,11 @@
             Rectangle:
                 size: self.size
                 pos: self.pos
-
+        Label:
+            size_hint: 1, .28
+            color: C("#3A8EED")            
+            text: ''
+            
         Label:
             size_hint: 1, .2
             color: C("#3A8EED")            
