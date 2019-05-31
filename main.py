@@ -30,11 +30,13 @@ from infra.view.area_menu import AreaMenu
 
 kivy.require('1.9.1')
 
-if plataforma.system() == 'Windows':
-    barra = '\\'
-else:
-    barra = '/'
+def defineBarra():
+    if plataforma.system() == 'Windows':
+        return '\\'
+    else:
+        return '/'
 
+barra = defineBarra()
 os.environ['KIVY_DATA_DIR'] = abspath(dirname(__file__)) + barra+'img'
 print(os.environ['KIVY_DATA_DIR'])
 
@@ -54,8 +56,8 @@ class DekatrianApp(App):
         self._telas = [TelaInicial, TelaDekatrian, TelaDesenvolvimento]
 
     def _configuracaoInicial(self):
-       
-        self.barra = self._defineBarra()
+
+        self.barra = defineBarra()
         self.pasta_projeto = os.path.dirname(os.path.abspath(__file__))
         self.pasta_imagens = self.pasta_projeto+self.barra+'img'+self.barra
 
@@ -65,11 +67,6 @@ class DekatrianApp(App):
         if platform != 'android':
             Window.size = (360, 640)
 
-    def _defineBarra(self):
-        if plataforma.system() == 'Windows':
-            return '\\'
-        else:
-            return '/'
 
     def _carregaKv(self):
 
