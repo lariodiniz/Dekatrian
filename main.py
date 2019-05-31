@@ -1,4 +1,8 @@
 # coding: utf-8
+
+__version__ = '1.0.0'
+__author__ = "Lário dos Santos Diniz"
+
 import os
 import kivy
 from os.path import abspath, dirname
@@ -42,7 +46,8 @@ class DekatrianApp(App):
     dataSelecionada = ObjectProperty(Data(date.today()))
     tela = ObjectProperty(str())
 
-    def __init__(self, **kwargs):
+    def __init__(self, version, **kwargs):
+        self.version = version
         self._configuracaoInicial()
         self._carregaKv()
         super(DekatrianApp, self).__init__(**kwargs)
@@ -115,8 +120,5 @@ class DekatrianApp(App):
 
 if __name__ in ('__android__', '__main__'):
 
-    janela = DekatrianApp()
+    janela = DekatrianApp(__version__)
     janela.run()
-
-__version__ = '1.0.0'
-__author__ = "Lário dos Santos Diniz"

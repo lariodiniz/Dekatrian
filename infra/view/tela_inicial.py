@@ -21,7 +21,7 @@ class TelaInicial(BoxLayout):
 
     def __init__(self, **kwargs):
         self.aplicacao = App.get_running_app()
-        self.background = self.aplicacao.pasta_imagens+'background.png'
+        #self.background = self.aplicacao.pasta_imagens+'background.png'
         super(TelaInicial, self).__init__(**kwargs)
 
 

@@ -2,6 +2,7 @@
 from kivy.uix.boxlayout import BoxLayout
 from kivy.utils import get_color_from_hex
 
+
 def Texto():
 
     return '''

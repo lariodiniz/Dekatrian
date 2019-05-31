@@ -25,7 +25,7 @@ class AreaMeses(StackLayout):
         for nomeDoMes in Mes.nomes():
             mes = MesCalendario(nomeDoMes)
             if (nomeDoMes == mesAtual):
-                mes.background_color = get_color_from_hex("#ADD8E6")
+                mes.background_color = get_color_from_hex("#DDDDDD")
 
             self.add_widget(mes)
 
@@ -36,7 +36,7 @@ class AreaMeses(StackLayout):
         proximoAno = self.aplicacao.dataSelecionada.to_date.year+1
         if self._ehBissexto(proximoAno):
             mes = MesCalendario('Sinchronian')
-            mes.background_color = get_color_from_hex("#DCDCDC")
+            mes.background_color = get_color_from_hex("#BBBBBB")
             self.add_widget(mes)
 
     def _ehBissexto(self, ano):
