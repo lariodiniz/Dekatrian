@@ -1,5 +1,6 @@
 # coding: utf-8
 from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.screenmanager import Screen
 from kivy.utils import get_color_from_hex
 
 
@@ -30,9 +31,11 @@ Python 3.5
 Kivy 1.9.1
 '''
 
-class TelaDesenvolvimento(BoxLayout):
+class TelaDesenvolvimento(Screen):
 
+    nome = 'TelaDesenvolvimento'
     def __init__(self, **kwargs):
+        
         self.texto = Texto()
         super(TelaDesenvolvimento, self).__init__(**kwargs)
 

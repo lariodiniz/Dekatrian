@@ -1,5 +1,6 @@
 # coding: utf-8
 from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.screenmanager import Screen
 from kivy.utils import get_color_from_hex
 
 def Texto():
@@ -18,9 +19,12 @@ para saber mais.
 [ref=http:////www.deviante.com.br//podcasts//scicast//]www.deviante.com.br//podcasts//scicast//[/ref]
 '''
 
-class TelaDekatrian(BoxLayout):
+class TelaDekatrian(Screen):
+
+    nome = 'TelaDekatrian'
 
     def __init__(self, **kwargs):
+        
         self.texto = Texto()
         super(TelaDekatrian, self).__init__(**kwargs)
 

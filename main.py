@@ -12,6 +12,7 @@ import platform as plataforma
 from datetime import date
 
 from kivy.app import App
+from kivy.uix.screenmanager import ScreenManager
 from kivy.core.window import Window
 from kivy.utils import get_color_from_hex
 from kivy.properties import ObjectProperty
@@ -53,7 +54,7 @@ class DekatrianApp(App):
         self._configuracaoInicial()
         self._carregaKv()
         super(DekatrianApp, self).__init__(**kwargs)
-        self._telas = [TelaInicial, TelaDekatrian, TelaDesenvolvimento]
+        self._telas = [TelaInicial(), TelaDekatrian(), TelaDesenvolvimento()]
 
     def _configuracaoInicial(self):
 
@@ -91,17 +92,22 @@ class DekatrianApp(App):
         self.title = 'Calendario Dekatrian'
         self.tela = TelaInicial()
         self.telaSecundaria = Button()
-        return self.tela
+        self.gerenciador = ScreenManager()
+        self.gerenciador.switch_to(self._telas[0])
+        return self.gerenciador
 
     def mudarTela(self, tela):
-        self.root_window.remove_widget(self.tela)
-        self.tela = self._telas[tela]()
-        self.root_window.add_widget(self.tela)
+        if self.gerenciador.current_screen != self._telas[tela]:
+            if tela == 0:
+                self.gerenciador.transition.direction = 'right'
+            else:
+                self.gerenciador.transition.direction = 'left'
+            self.gerenciador.switch_to(self._telas[tela])       
 
     def mudarTelaSecundaria(self, tela):
-        self.tela.ids.tela_secundaria.remove_widget(self.telaSecundaria)
+        self.gerenciador.current_screen.ids.tela_secundaria.remove_widget(self.telaSecundaria)
         self.telaSecundaria = tela()
-        self.tela.ids.tela_secundaria.add_widget(self.telaSecundaria)
+        self.gerenciador.current_screen.ids.tela_secundaria.add_widget(self.telaSecundaria)
 
     @property
     def tela_inicial(self):
