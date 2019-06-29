@@ -1,7 +1,8 @@
 <TelaMenu>:  
     BoxLayout:
-        orientation: "vertical" 
-
+        orientation: "vertical"         
+        padding: root.width * 0.25, root.height * 0.10
+        spacing: '30dp'
         canvas:
             Color:            
                 rgb: C("#4A93E7")
@@ -10,12 +11,11 @@
                 pos: root.pos  
         BoxLayout:
             orientation: "vertical" 
-            size_hint: 1, .2
-            padding: 10
-            spacing: 2
+            height: root.height * 0.4
             Image:
                 source: root.img_logo
                 size_hint_y: None
+                height: root.height * 0.2
                 allow_stretch: True
 
             Label:
@@ -29,10 +29,10 @@
 
         BoxLayout:
             orientation: "vertical" 
-            size_hint: 1, .3            
-            spacing: 15   
+            spacing: '30dp'
 
             BoxLayout:
+                
                 orientation: "horizontal"   
                 Label:                    
                     text: ''                   
@@ -42,13 +42,15 @@
                     on_press: root.on_press_calendario()        
                     background_normal: root.img_calendario
                     background_down: root.img_calendario
-                    size_hint: None, None
-                    size: (150,150)
+                    size_hint: None, None                    
+                    width: '120sp'
+                    height: '120sp'
                 Label:                    
                     text: ''                     
                        
 
             BoxLayout:
+                
                 orientation: "horizontal"  
                 Label:                    
                     text: ''                                    
@@ -57,8 +59,9 @@
                     on_press: root.on_press_dekatrian()
                     background_normal: root.img_dekatrian
                     background_down: root.img_dekatrian
-                    size_hint: None, None
-                    size: (150,150) 
+                    size_hint: None, None                    
+                    width: '120sp'
+                    height: '120sp'
                 Label:                    
                     text: ''                       
 
@@ -72,8 +75,9 @@
                     on_press: root.on_press_desenvolvimento()
                     background_normal: root.img_desenvolvimento
                     background_down: root.img_desenvolvimento
-                    size_hint: None, None
-                    size: (150,150)                    
+                    size_hint: None, None                    
+                    width: '120sp'
+                    height: '120sp'              
                 Label:                    
                     text: ''                       
                     
