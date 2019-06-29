@@ -1,7 +1,19 @@
 # coding: utf-8
-from kivy.uix.boxlayout import BoxLayout
-from kivy.uix.screenmanager import Screen
-from kivy.utils import get_color_from_hex
+__author__ = "Lário dos Santos Diniz"
+
+
+from infra.view.tela import Tela
+
+
+class TelaDekatrian(Tela):
+
+
+    def __init__(self, **kwargs):
+        self.nome = 'TelaDekatrian'
+        self.title='Informações Dekatrian'
+        self.texto = Texto()
+        super(TelaDekatrian, self).__init__(**kwargs)
+
 
 def Texto():
     
@@ -18,15 +30,3 @@ para saber mais.
 
 [ref=http:////www.deviante.com.br//podcasts//scicast//]www.deviante.com.br//podcasts//scicast//[/ref]
 '''
-
-class TelaDekatrian(Screen):
-
-    nome = 'TelaDekatrian'
-
-    def __init__(self, **kwargs):
-        
-        self.texto = Texto()
-        super(TelaDekatrian, self).__init__(**kwargs)
-
-
-__author__ = "Lário dos Santos Diniz"

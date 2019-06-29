@@ -1,10 +1,23 @@
 # coding: utf-8
-from kivy.uix.boxlayout import BoxLayout
-from kivy.uix.screenmanager import Screen
-from kivy.utils import get_color_from_hex
+__author__ = "Lário dos Santos Diniz"
 
 
-def Texto():
+from infra.view.tela import Tela
+from kivy.app import App
+
+
+class TelaDesenvolvimento(Tela):
+
+    def __init__(self, **kwargs):
+        self.nome = 'TelaDesenvolvimento'
+        self.title='Informações Desenvolvimento'     
+        self.texto = Texto(App.get_running_app().version) 
+        super(TelaDesenvolvimento, self).__init__(**kwargs)
+        
+
+
+
+def Texto(versao):
 
     return '''
 Este programa está sendo desenvolvido 
@@ -24,20 +37,11 @@ Icones dos botões feitos por
 [ref=https://www.flaticon.com/authors/dinosoftlabs]DinosoftLabs[/ref] para [ref=https://www.flaticon.com/]www.flaticon.com[/ref] 
 e usa a licença [ref=http://creativecommons.org/licenses/by/3.0/]CC 3.0[/ref] 
 
+Versão da Aplicação: {}
 
 Tecnologias utilizadas no desenvolvimento:
 
 Python 3.5
 Kivy 1.9.1
-'''
+'''.format(versao)
 
-class TelaDesenvolvimento(Screen):
-
-    nome = 'TelaDesenvolvimento'
-    def __init__(self, **kwargs):
-        
-        self.texto = Texto()
-        super(TelaDesenvolvimento, self).__init__(**kwargs)
-
-
-__author__ = "Lário dos Santos Diniz"

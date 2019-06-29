@@ -1,28 +1,18 @@
-<AreaMenu>:  
-    canvas:
-        Color:            
-            rgb: C("#ffffff")
-        Rectangle:
-            size: root.size
-            pos: root.pos                    
-    Button:
+#:import C kivy.utils.get_color_from_hex
+<AreaMenu>: 
+    pos_hint: {'top':1}  #na parte superior da tela
+    background_normal:''
+    background_down: ''
+    background_color: 0,3, 10, 1
+    ActionView:
 
-        id: calendario        
-        on_press: root.on_press_calendario()        
-        background_normal: root.img_calendario
-        background_down: root.img_calendario
-        border:(0,22,0,22)                
+        ActionPrevious:
+            title: root.aplicacao.title
+            on_release: root.on_press_menu()
+            app_icon:  root.img_logo
+            app_icon_width: 50
 
-    Button:     
-        id: dekatrian                    
-        on_press: root.on_press_dekatrian()
-        background_normal: root.img_dekatrian
-        background_down: root.img_dekatrian
-        border:(0,22,0,22)          
-
-    Button:   
-        id: desenvolvimento
-        on_press: root.on_press_desenvolvimento()
-        background_normal: root.img_desenvolvimento
-        background_down: root.img_desenvolvimento
-        border:(0,22,0,22)          
+        ActionButton:
+            text: 'Sair'
+            on_release: root.confirmacao()
+            

@@ -14,7 +14,6 @@ from datetime import date
 from kivy.app import App
 from kivy.uix.screenmanager import ScreenManager
 from kivy.core.window import Window
-from kivy.utils import get_color_from_hex
 from kivy.properties import ObjectProperty
 from kivy.config import Config
 from kivy.lang import Builder
@@ -24,12 +23,13 @@ from kivy.uix.button import Button
 from infra.view.tela_inicial import TelaInicial
 from infra.view.tela_desenvolvimento import TelaDesenvolvimento
 from infra.view.tela_dekatrian import TelaDekatrian
+from infra.view.tela_menu import TelaMenu
 
 from infra.controller.data import Data
 
 from infra.view.area_menu import AreaMenu
 
-kivy.require('1.9.1')
+kivy.require('1.11.1')
 
 def defineBarra():
     if plataforma.system() == 'Windows':
@@ -48,13 +48,15 @@ class DekatrianApp(App):
     dataAtual = ObjectProperty(Data(date.today()))
     dataSelecionada = ObjectProperty(Data(date.today()))
     tela = ObjectProperty(str())
+    title = ObjectProperty(str())
+    version = __version__
 
     def __init__(self, version, **kwargs):
         self.version = version
         self._configuracaoInicial()
         self._carregaKv()
         super(DekatrianApp, self).__init__(**kwargs)
-        self._telas = [TelaInicial(), TelaDekatrian(), TelaDesenvolvimento()]
+        self._telas = [TelaMenu(),TelaInicial(), TelaDekatrian(), TelaDesenvolvimento()]
 
     def _configuracaoInicial(self):
 
@@ -64,7 +66,6 @@ class DekatrianApp(App):
 
         Config.set('graphics', 'resizable', 0)
         Config.set('kivy', 'window_icon', self.pasta_imagens + 'icon.png')
-        #Window.clearcolor = get_color_from_hex("#B0C4DE")
         if platform != 'android':
             Window.size = (360, 640)
 
@@ -90,19 +91,22 @@ class DekatrianApp(App):
 
         self.icon = 'img/icon.png'
         self.title = 'Calendario Dekatrian'
-        self.tela = TelaInicial()
         self.telaSecundaria = Button()
         self.gerenciador = ScreenManager()
-        self.gerenciador.switch_to(self._telas[0])
+        self._defineTela(1)
         return self.gerenciador
 
+    def _defineTela(self, tela):
+        self.title = self._telas[tela].title
+        self.gerenciador.switch_to(self._telas[tela])
+        
     def mudarTela(self, tela):
         if self.gerenciador.current_screen != self._telas[tela]:
             if tela == 0:
                 self.gerenciador.transition.direction = 'right'
             else:
                 self.gerenciador.transition.direction = 'left'
-            self.gerenciador.switch_to(self._telas[tela])       
+            self._defineTela(tela)    
 
     def mudarTelaSecundaria(self, tela):
         self.gerenciador.current_screen.ids.tela_secundaria.remove_widget(self.telaSecundaria)
@@ -110,16 +114,20 @@ class DekatrianApp(App):
         self.gerenciador.current_screen.ids.tela_secundaria.add_widget(self.telaSecundaria)
 
     @property
-    def tela_inicial(self):
+    def tela_menu(self):
         return 0
 
     @property
-    def tela_dekatrian(self):
+    def tela_inicial(self):
         return 1
 
     @property
-    def tela_desenvolvimento(self):
+    def tela_dekatrian(self):
         return 2
+
+    @property
+    def tela_desenvolvimento(self):
+        return 3
 
 if __name__ in ('__android__', '__main__'):
 
