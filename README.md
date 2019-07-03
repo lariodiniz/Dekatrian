@@ -1,5 +1,3 @@
-![Dekatrian](https://raw.githubusercontent.com/lariodiniz/Dekatrian/master/img/logo.png)
-
 Dekatrian
 ==========
 
@@ -10,8 +8,8 @@ Visite a página da [Deviante](http://www.deviante.com.br) ou o grupo de faceboo
 
 - Instaladores
 
-[![Windows 64](https://github.com/lariodiniz/Dekatrian/blob/develop/ImagensGit/Windows64.png)](https://github.com/lariodiniz/Dekatrian/releases/download/v1.0.0/Dekatrian_Install.exe)
-[![Android](https://github.com/lariodiniz/Dekatrian/blob/develop/ImagensGit/Android.png)](https://github.com/lariodiniz/Dekatrian/releases/download/v1.0.0/dekatrian-1.0.0-debug.apk)
+[![Windows 64](https://github.com/lariodiniz/Dekatrian/blob/develop/ImagensGit/Windows64.png)](https://github.com/lariodiniz/Dekatrian/releases/download/v1.1.0/Dekatrian_Install.exe)
+[![Android](https://github.com/lariodiniz/Dekatrian/blob/develop/ImagensGit/Android.png)](https://github.com/lariodiniz/Dekatrian/releases/download/v1.1.0/dekatrian-1.1.0-debug.apk)
 
 Desenvolvimento
 ==========
