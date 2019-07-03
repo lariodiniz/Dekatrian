@@ -1,7 +1,6 @@
 # coding: utf-8
 __author__ = "Lário dos Santos Diniz"
 
-
 from infra.view.tela import Tela
 
 

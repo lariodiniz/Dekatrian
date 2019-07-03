@@ -3,15 +3,18 @@ __author__ = "Lário dos Santos Diniz"
 
 import os
 
+
 from kivy.app import App
 from kivy.uix.screenmanager import Screen
 from kivy.utils import get_color_from_hex
+from kivy.properties import ObjectProperty
 
 
-class TelaMenu(Screen):    
-    nome = 'TelaMenu'
-    title = 'Menu'
+class TelaMenu(Screen):
     """Classe que define a area que mostra o menu."""
+    
+    nome = ObjectProperty('TelaMenu')
+    title = ObjectProperty('Menu')
 
     def __init__(self, **kwargs):
         self.aplicacao = App.get_running_app()
@@ -36,17 +39,12 @@ class TelaMenu(Screen):
 
     @property
     def text_desenvolvedor(self):
-        return 'Informação Desenvolvedor'   
+        return 'Informação Desenvolvedor'
 
     @property
     def text_label_calendario(self):
-        return 'Calendário'  
+        return 'Calendário'
 
     @property
     def text_label_titulo(self):
-        return 'Calendário Dekatrian'  
-
-        
-
-__author__ = "Lário dos Santos Diniz"
-
+        return 'Calendário Dekatrian'

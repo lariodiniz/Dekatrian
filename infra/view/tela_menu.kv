@@ -5,7 +5,7 @@
         spacing: '30dp'
         canvas:
             Color:            
-                rgb: C("#4A93E7")
+                rgb: C("#FFFFFF")
             Rectangle:
                 size: root.size
                 pos: root.pos  
@@ -23,16 +23,14 @@
                 font_size: '30sp'
                 bold: True
                 pos_hint: {"right":1, "top":1}                
-                color:  C("#FFFFFF")
+                color:  C("#4A93E7")
                 font_height: 100        
                 ellipsis_options: {'color':(1,0.5,0.5,1),'underline':True}    
 
         BoxLayout:
             orientation: "vertical" 
-            spacing: '30dp'
-
-            BoxLayout:
-                
+            spacing: '30dp'            
+            BoxLayout:                
                 orientation: "horizontal"   
                 Label:                    
                     text: ''                   
@@ -43,8 +41,8 @@
                     background_normal: root.img_calendario
                     background_down: root.img_calendario
                     size_hint: None, None                    
-                    width: '120sp'
-                    height: '120sp'
+                    width: root.width * 0.3
+                    height: root.width * 0.3
                 Label:                    
                     text: ''                     
                        
@@ -60,8 +58,8 @@
                     background_normal: root.img_dekatrian
                     background_down: root.img_dekatrian
                     size_hint: None, None                    
-                    width: '120sp'
-                    height: '120sp'
+                    width: root.width * 0.3
+                    height: root.width * 0.3
                 Label:                    
                     text: ''                       
 
@@ -76,12 +74,7 @@
                     background_normal: root.img_desenvolvimento
                     background_down: root.img_desenvolvimento
                     size_hint: None, None                    
-                    width: '120sp'
-                    height: '120sp'              
+                    width: root.width * 0.3
+                    height: root.width * 0.3             
                 Label:                    
                     text: ''                       
-                    
-
-       
-
-         

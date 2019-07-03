@@ -10,7 +10,7 @@ from infra.view.tela import Tela
 
 class TelaInicial(Tela):
 
-    def __init__(self, **kwargs):        
+    def __init__(self, **kwargs):
         self.nome = 'TelaInicial'
-        self.title='Calendário'
+        self.title = 'Calendário'
         super(TelaInicial, self).__init__(**kwargs)

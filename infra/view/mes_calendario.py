@@ -5,7 +5,6 @@ from datetime import date, datetime, timedelta
 from kivy.app import App
 from kivy.uix.button import Button
 from kivy.utils import get_color_from_hex
-from kivy.uix.boxlayout import BoxLayout
 
 from infra.controller.data import Data
 

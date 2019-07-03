@@ -3,7 +3,6 @@ from datetime import date, datetime
 
 from kivy.app import App
 from kivy.uix.stacklayout import StackLayout
-from kivy.uix.button import Button
 from kivy.utils import get_color_from_hex
 
 from infra.view.mes_calendario import MesCalendario

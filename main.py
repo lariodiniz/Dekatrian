@@ -4,10 +4,6 @@ __version__ = '1.0.0'
 __author__ = "Lário dos Santos Diniz"
 
 import os
-import kivy
-from os.path import abspath, dirname
-import platform as plataforma
-
 
 from datetime import date
 
@@ -19,27 +15,15 @@ from kivy.config import Config
 from kivy.lang import Builder
 from kivy.utils import platform
 from kivy.uix.button import Button
+import platform as plataforma
 
+from infra.view.area_menu import AreaMenu
 from infra.view.tela_inicial import TelaInicial
 from infra.view.tela_desenvolvimento import TelaDesenvolvimento
 from infra.view.tela_dekatrian import TelaDekatrian
 from infra.view.tela_menu import TelaMenu
 
 from infra.controller.data import Data
-
-from infra.view.area_menu import AreaMenu
-
-kivy.require('1.11.1')
-
-def defineBarra():
-    if plataforma.system() == 'Windows':
-        return '\\'
-    else:
-        return '/'
-
-barra = defineBarra()
-os.environ['KIVY_DATA_DIR'] = abspath(dirname(__file__)) + barra+'img'
-print(os.environ['KIVY_DATA_DIR'])
 
 
 class DekatrianApp(App):
@@ -51,16 +35,27 @@ class DekatrianApp(App):
     title = ObjectProperty(str())
     version = __version__
 
+    def _defineBarra(self):
+        if plataforma.system() == 'Windows':
+            return '\\'
+        else:
+            return '/'
+
     def __init__(self, version, **kwargs):
         self.version = version
         self._configuracaoInicial()
         self._carregaKv()
         super(DekatrianApp, self).__init__(**kwargs)
-        self._telas = [TelaMenu(),TelaInicial(), TelaDekatrian(), TelaDesenvolvimento()]
+        self._telas = [
+            TelaMenu(),
+            TelaInicial(),
+            TelaDekatrian(),
+            TelaDesenvolvimento(),
+            ]
 
     def _configuracaoInicial(self):
 
-        self.barra = defineBarra()
+        self.barra = self._defineBarra()
         self.pasta_projeto = os.path.dirname(os.path.abspath(__file__))
         self.pasta_imagens = self.pasta_projeto+self.barra+'img'+self.barra
 
@@ -88,8 +83,12 @@ class DekatrianApp(App):
         return [arq.split(self.barra)[-1] for arq in arqFiltrados]
 
     def build(self):
+        barra = self._defineBarra()
+        pasta_projeto = os.path.dirname(os.path.abspath(__file__))
+        pasta_imagens = pasta_projeto+barra+'img'+barra
 
-        self.icon = 'img/icon.png'
+        self.icon = pasta_imagens+'icon.png'
+
         self.title = 'Calendario Dekatrian'
         self.telaSecundaria = Button()
         self.gerenciador = ScreenManager()
@@ -99,19 +98,20 @@ class DekatrianApp(App):
     def _defineTela(self, tela):
         self.title = self._telas[tela].title
         self.gerenciador.switch_to(self._telas[tela])
-        
+
     def mudarTela(self, tela):
         if self.gerenciador.current_screen != self._telas[tela]:
             if tela == 0:
                 self.gerenciador.transition.direction = 'right'
             else:
                 self.gerenciador.transition.direction = 'left'
-            self._defineTela(tela)    
+            self._defineTela(tela)
 
     def mudarTelaSecundaria(self, tela):
-        self.gerenciador.current_screen.ids.tela_secundaria.remove_widget(self.telaSecundaria)
+        tela_secundaria = self.gerenciador.current_screen.ids.tela_secundaria
+        tela_secundaria.remove_widget(self.telaSecundaria)
         self.telaSecundaria = tela()
-        self.gerenciador.current_screen.ids.tela_secundaria.add_widget(self.telaSecundaria)
+        tela_secundaria.add_widget(self.telaSecundaria)
 
     @property
     def tela_menu(self):

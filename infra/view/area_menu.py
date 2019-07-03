@@ -1,18 +1,22 @@
 # coding: utf-8
+__author__ = "Lário dos Santos Diniz"
+
 from kivy.app import App
+from kivy.animation import Animation
 from kivy.uix.actionbar import ActionBar
 from kivy.uix.popup import Popup
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.button import Button
 from kivy.uix.image import Image
 from kivy.utils import get_color_from_hex
-from kivy.animation import Animation
 
 class AreaMenu(ActionBar):
     """Classe que define a area que mostra o menu."""
 
     def __init__(self, **kwargs):
         self.aplicacao = App.get_running_app()
+        dataSelecionada = self.aplicacao.dataSelecionada
+        self.dataAtual = dataSelecionada.dia_numero_mes+' '+dataSelecionada.mes_nome+ ' '+dataSelecionada.ano
         self.img_logo = self.aplicacao.pasta_imagens+'icon.png'
 
         super(AreaMenu, self).__init__(**kwargs)
@@ -41,10 +45,7 @@ class AreaMenu(ActionBar):
         atencao = Image(source=self.aplicacao.pasta_imagens+'warning.png')
         box.add_widget(atencao)
         box.add_widget(botoes)
+
         anim = Animation(size=(300, 180), duration=0.2, t='out_back')
         anim.start(pop)
         pop.open()
-
-
-
-__author__ = "Lário dos Santos Diniz"

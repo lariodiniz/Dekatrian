@@ -2,8 +2,9 @@
 __author__ = "Lário dos Santos Diniz"
 
 
-from infra.view.tela import Tela
 from kivy.app import App
+
+from infra.view.tela import Tela
 
 
 class TelaDesenvolvimento(Tela):
