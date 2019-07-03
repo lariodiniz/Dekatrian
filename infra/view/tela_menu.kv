@@ -1,0 +1,80 @@
+<TelaMenu>:  
+    BoxLayout:
+        orientation: "vertical"         
+        padding: root.width * 0.25, root.height * 0.10
+        spacing: '30dp'
+        canvas:
+            Color:            
+                rgb: C("#FFFFFF")
+            Rectangle:
+                size: root.size
+                pos: root.pos  
+        BoxLayout:
+            orientation: "vertical" 
+            height: root.height * 0.4
+            Image:
+                source: root.img_logo
+                size_hint_y: None
+                height: root.height * 0.2
+                allow_stretch: True
+
+            Label:
+                text: root.text_label_titulo 
+                font_size: '30sp'
+                bold: True
+                pos_hint: {"right":1, "top":1}                
+                color:  C("#4A93E7")
+                font_height: 100        
+                ellipsis_options: {'color':(1,0.5,0.5,1),'underline':True}    
+
+        BoxLayout:
+            orientation: "vertical" 
+            spacing: '30dp'            
+            BoxLayout:                
+                orientation: "horizontal"   
+                Label:                    
+                    text: ''                   
+                    
+                Button:                    
+                    id: calendario        
+                    on_press: root.on_press_calendario()        
+                    background_normal: root.img_calendario
+                    background_down: root.img_calendario
+                    size_hint: None, None                    
+                    width: root.width * 0.3
+                    height: root.width * 0.3
+                Label:                    
+                    text: ''                     
+                       
+
+            BoxLayout:
+                
+                orientation: "horizontal"  
+                Label:                    
+                    text: ''                                    
+                Button:     
+                    id: dekatrian                    
+                    on_press: root.on_press_dekatrian()
+                    background_normal: root.img_dekatrian
+                    background_down: root.img_dekatrian
+                    size_hint: None, None                    
+                    width: root.width * 0.3
+                    height: root.width * 0.3
+                Label:                    
+                    text: ''                       
+
+
+            BoxLayout:
+                orientation: "horizontal"  
+                Label:                    
+                    text: ''                                    
+                Button:   
+                    id: desenvolvimento
+                    on_press: root.on_press_desenvolvimento()
+                    background_normal: root.img_desenvolvimento
+                    background_down: root.img_desenvolvimento
+                    size_hint: None, None                    
+                    width: root.width * 0.3
+                    height: root.width * 0.3             
+                Label:                    
+                    text: ''                       

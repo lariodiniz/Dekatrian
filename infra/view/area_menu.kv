@@ -1,0 +1,18 @@
+#:import C kivy.utils.get_color_from_hex
+<AreaMenu>: 
+    pos_hint: {'top':1}  #na parte superior da tela
+    background_normal:''
+    background_down: ''
+    background_color: 0,3, 10, 1
+    ActionView:
+
+        ActionPrevious:
+            title: root.dataAtual
+            on_release: root.on_press_menu()
+            app_icon:  root.img_logo
+            app_icon_width: root.width * 0.18
+
+        #ActionButton:
+        #    text: 'Sair'
+        #    on_release: root.confirmacao()
+            

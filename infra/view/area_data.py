@@ -4,7 +4,7 @@ from datetime import date
 from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
 
-from infra.regras.data import Data
+from infra.controller.data import Data
 from kivy.uix.button import Button
 
 from infra.view.area_meses import AreaMeses

@@ -7,7 +7,7 @@ from kivy.uix.button import Button
 from kivy.utils import get_color_from_hex
 
 from infra.view.ano_calendario import AnoCalendario
-from infra.regras.data import Data
+from infra.controller.data import Data
 
 
 class AreaAnos(StackLayout):
@@ -24,7 +24,7 @@ class AreaAnos(StackLayout):
         for numeroAno in range(anoSelecionado-4, anoSelecionado+8):
             ano = AnoCalendario(str(numeroAno))
             if numeroAno == anoAtual:
-                ano.background_color = get_color_from_hex("#ADD8E6")
+                ano.background_color = get_color_from_hex("#DDDDDD")
             self.add_widget(ano)
 
 __author__ = "Lário dos Santos Diniz"

@@ -3,12 +3,11 @@ from datetime import date, datetime
 
 from kivy.app import App
 from kivy.uix.stacklayout import StackLayout
-from kivy.uix.button import Button
 from kivy.utils import get_color_from_hex
 
 from infra.view.mes_calendario import MesCalendario
-from infra.regras.meses import Mes
-from infra.regras.data import Data
+from infra.controller.meses import Mes
+from infra.controller.data import Data
 
 
 class AreaMeses(StackLayout):
@@ -25,7 +24,7 @@ class AreaMeses(StackLayout):
         for nomeDoMes in Mes.nomes():
             mes = MesCalendario(nomeDoMes)
             if (nomeDoMes == mesAtual):
-                mes.background_color = get_color_from_hex("#ADD8E6")
+                mes.background_color = get_color_from_hex("#DDDDDD")
 
             self.add_widget(mes)
 
@@ -36,7 +35,7 @@ class AreaMeses(StackLayout):
         proximoAno = self.aplicacao.dataSelecionada.to_date.year+1
         if self._ehBissexto(proximoAno):
             mes = MesCalendario('Sinchronian')
-            mes.background_color = get_color_from_hex("#DCDCDC")
+            mes.background_color = get_color_from_hex("#BBBBBB")
             self.add_widget(mes)
 
     def _ehBissexto(self, ano):

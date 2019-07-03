@@ -1,20 +1,16 @@
 # coding: utf-8
-from kivy.uix.boxlayout import BoxLayout
-from kivy.graphics import Color
-from kivy.graphics import Rectangle
-from kivy.properties import ObjectProperty
+__author__ = "Lário dos Santos Diniz"
 
-from kivy.utils import get_color_from_hex
 
 from infra.view.area_titulo import AreaTitulo
 from infra.view.area_data import AreaData
 from infra.view.area_calendario import AreaCalendario
+from infra.view.tela import Tela
 
 
-class TelaInicial(BoxLayout):
-    telaSecundaria = ObjectProperty(None)
+class TelaInicial(Tela):
 
     def __init__(self, **kwargs):
+        self.nome = 'TelaInicial'
+        self.title = 'Calendário'
         super(TelaInicial, self).__init__(**kwargs)
-
-__author__ = "Lário dos Santos Diniz"

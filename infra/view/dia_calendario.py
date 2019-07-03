@@ -4,9 +4,9 @@ from datetime import date
 from kivy.app import App
 from kivy.uix.button import Button
 from kivy.utils import get_color_from_hex
-from kivy.uix.label import Label
 
-from infra.regras.data import Data
+
+from infra.controller.data import Data
 
 
 class DiaCalendario(Button):
